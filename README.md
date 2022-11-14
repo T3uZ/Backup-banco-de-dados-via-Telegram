@@ -98,6 +98,7 @@ Agora vamos criar e configurar o backup para rodar em 10 em 10 Minutos.
 crontab -e
 ```
 A primeira vez que você rodar o comando será solicitado qual editor você deseja, vou selecionar o nano “1”.
+
 Na ultima linha coloca o seguinte comando:
 
 ```bash
