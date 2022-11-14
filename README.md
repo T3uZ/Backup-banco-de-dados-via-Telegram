@@ -56,7 +56,7 @@ Escolha o metodo de compactação tar/zip
 COMPAC='tar'
 ```
 
-Bot no telegra tudo pronto, vamos criar o script para pegar o backup do banco de dados.
+Bot no telegram tudo pronto, vamos criar o script para pegar o backup do banco de dados.
 
 ```bash
 nano /etc/backups/backup_enviar_telegram.sh
