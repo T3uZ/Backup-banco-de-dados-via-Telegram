@@ -1,10 +1,22 @@
 # Backup-banco-de-dados-via-Telegram
-Backup de banco de dados via Telegram
 
 
 
 
-1. Alterando para root
+
+Criando Bot no telegram
+
+Abra o Telegram e procure por @BotFather.
+Inicie a conversa com ele.
+
+## Screenshots
+
+
+
+
+
+
+Alterando para root
 
 ```bash
 sudo su root
