@@ -73,11 +73,11 @@ USER_DB='root'
 # SENHA DO BANCO DE DADOS
 SENHA_DB=''
 # NOME DO BANCO DE DADOS
-NOME_BANCO='nsi'
+NOME_BANCO='press-ticket'
 # NOME PARA O BACKUP
-NOME_DO_BKP='NSI'
+NOME_DO_BKP='Backup Press Ticket'
 # ID TELEGRAM
-ID_TELEGRAM='-826593483'
+ID_TELEGRAM='-000000000'
 # --------------------------------------
 DATABKP=`date +%Y-%m-%d`
 NOME_BD="/tmp/${NOME_BANCO}.${DATABKP}.tar.gz"
