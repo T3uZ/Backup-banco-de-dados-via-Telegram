@@ -21,3 +21,7 @@ Alterando para root
 ```bash
 sudo su root
 ```
+
+```bash
+apt install curl wget zip unzip
+```
