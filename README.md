@@ -61,6 +61,7 @@ Bot no telegram tudo pronto, vamos criar o script para pegar o backup do banco d
 ```bash
 nano /etc/backups/backup_enviar_telegram.sh
 ```
+Altere as variáveis informando usuário/senha do seu banco de dados bem como ID do telegram.
 
 SCRIPT MYSQL DIRETO NA VPS
 
