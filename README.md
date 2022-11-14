@@ -55,3 +55,51 @@ Escolha o metodo de compactação tar/zip
 COMPAC='tar'
 ```
 
+Bot no telegra tudo pronto, vamos criar o script para pegar o backup do banco de dados.
+
+```bash
+nano /etc/backups/backup_enviar_telegram.sh
+```
+
+SCRIPT MYSQL DIRETO NA VPS
+
+```bash
+#!/bin/bash
+# Autor: remontti.com.br
+# Ajudante: Matheus
+# --------------------------------------
+# USUARIO  DO BANCO DE DADOS
+USER_DB='root'
+# SENHA DO BANCO DE DADOS
+SENHA_DB=''
+# NOME DO BANCO DE DADOS
+NOME_BANCO='nsi'
+# NOME PARA O BACKUP
+NOME_DO_BKP='NSI'
+# ID TELEGRAM
+ID_TELEGRAM='-826593483'
+# --------------------------------------
+DATABKP=`date +%Y-%m-%d`
+NOME_BD="/tmp/${NOME_BANCO}.${DATABKP}.tar.gz"
+mysqldump -h 127.0.0.1 -u ${USER_DB} -p${SENHA_DB} -B ${NOME_BANCO} > /tmp/${NOME_BANCO}.${DATABKP}.sql 
+/bin/telegram -f "${ID_TELEGRAM}" "/tmp/${NOME_BANCO}.${DATABKP}.sql" "${NOME_DO_BKP}" "${NOME_BANCO}" &>/dev/null
+rm -f /tmp/*.sql &>/dev/null
+```
+
+Dando permissão para o arquivo que acabamos de criar.
+
+```bash
+chmod +x /etc/backups/backup_enviar_telegram.sh
+```
+
+Agora vamos criar e configurar o backup para rodar em 10 em 10 Minutos.
+
+```bash
+crontab -e
+```
+A primeira vez que você rodar o comando será solicitado qual editor você deseja, vou selecionar o nano “1”.
+Na ultima linha coloca o seguinte comando:
+
+```bash
+*/10 *  *   *   *     /etc/backups/backup_enviar_telegram.sh
+```
