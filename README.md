@@ -4,12 +4,8 @@
 
 
 
-Criando Bot no telegram
-
-Abra o Telegram e procure por @BotFather.
-Inicie a conversa com ele.
-
-## Screenshots
+No tutorial já estamos supondo que seu BOT no Telegram esteja criado, não tem segredo, pesquisada rapida no google vai explicar.
+Futuramente vou ensinar aqui a como criar.
 
 
 
