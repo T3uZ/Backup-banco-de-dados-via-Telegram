@@ -5,7 +5,8 @@
 
 
 No tutorial já estamos supondo que seu BOT no Telegram esteja criado, não tem segredo, pesquisada rapida no google vai explicar.
-Futuramente vou ensinar aqui a como criar.
+Futuramente vou ensinar aqui a como criar. 
+Obs.: Estamos suponde que o bot do telegram esteja dentro de um grupo, pois vamos pegar o ID do chat do grupo.
 
 
 
