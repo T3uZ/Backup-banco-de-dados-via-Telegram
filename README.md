@@ -6,7 +6,7 @@
 
 Criando Bot no telegram
 
-Abra o Telegram e procure por @BotFather.\n
+Abra o Telegram e procure por @BotFather.
 Inicie a conversa com ele.
 
 ## Screenshots
