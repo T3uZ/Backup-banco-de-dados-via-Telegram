@@ -29,7 +29,7 @@ Instalando algumas dependenticas necessarias
 apt install curl wget zip unzip
 ```
 
-Criando masta onde vai ficar o script
+Criando pasta onde vai ficar o script
 
 ```bash
 mkdir /etc/backups/
@@ -40,6 +40,11 @@ Baixando o script
 ```bash
 wget https://raw.githubusercontent.com/matheus1628/Backup-banco-de-dados-via-Telegram/main/telegram -O /bin/telegram
 chmod +x /bin/telegram
+```
+Acessando o arquivo para modificar com os dados necessarios
+
+```bash
+nano /bin/telegram
 ```
 
 Altere o TOKEN e o formato da compactação (zip ou tar)
