@@ -87,6 +87,30 @@ mysqldump -h 127.0.0.1 -u ${USER_DB} -p${SENHA_DB} -B ${NOME_BANCO} > /tmp/${NOM
 /bin/telegram -f "${ID_TELEGRAM}" "/tmp/${NOME_BANCO}.${DATABKP}.sql" "${NOME_DO_BKP}" "${NOME_BANCO}" &>/dev/null
 rm -f /tmp/*.sql &>/dev/null
 ```
+SCRIPT POSTGRESQL DIRETO NA VPS
+
+```bash
+#!/bin/bash
+# Autor: remontti.com.br
+# Ajudante: Matheus
+# --------------------------------------
+# USUARIO  DO BANCO DE DADOS
+USER_DB='root'
+# SENHA DO BANCO DE DADOS
+SENHA_DB=''
+# NOME DO BANCO DE DADOS
+NOME_BANCO='press-ticket'
+# NOME PARA O BACKUP
+NOME_DO_BKP='Backup Press Ticket'
+# ID TELEGRAM
+ID_TELEGRAM='-000000000'
+# --------------------------------------
+DATABKP=`date +%Y-%m-%d`
+NOME_BD="/tmp/${NOME_BANCO}.${DATABKP}.tar.gz"
+pg_dump "host=localhost port=5432 dbname=${NOME_BANCO} user=${USER_DB} password=${SENHA_DB}" > /tmp/${NOME_BANCO}.${DATABKP}.sql 
+/bin/telegram -f "${ID_TELEGRAM}" "/tmp/${NOME_BANCO}.${DATABKP}.sql" "${NOME_DO_BKP}" "${NOME_BANCO}" &>/dev/null
+rm -f /tmp/*.sql &>/dev/null
+```
 
 Dando permissão para o arquivo que acabamos de criar.
 
