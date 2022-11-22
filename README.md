@@ -35,7 +35,7 @@ mkdir /etc/backups/
 Baixando o script
 
 ```bash
-wget https://raw.githubusercontent.com/matheus1628/Backup-banco-de-dados-via-Telegram/main/telegram -O /bin/telegram
+wget https://raw.githubusercontent.com/T3uZ/Backup-banco-de-dados-via-Telegram/main/telegram -O /bin/telegram
 chmod +x /bin/telegram
 ```
 Acessando o arquivo para modificar com os dados necessarios
