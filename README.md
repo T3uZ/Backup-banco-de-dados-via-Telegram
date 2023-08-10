@@ -111,6 +111,44 @@ pg_dump "host=localhost port=5432 dbname=${NOME_BANCO} user=${USER_DB} password=
 /bin/telegram -f "${ID_TELEGRAM}" "/tmp/${NOME_BANCO}.${DATABKP}.sql" "${NOME_DO_BKP}" "${NOME_BANCO}" &>/dev/null
 rm -f /tmp/*.sql &>/dev/null
 ```
+SCRIPT POSTGRESQL EM DOCKER
+
+```bash
+#!/bin/bash
+# Autor: remontti.com.br
+# Ajudante: Matheus
+# --------------------------------------
+# USUARIO  DO BANCO DE DADOS
+USER_DB='nsi'
+# SENHA DO BANCO DE DADOS
+SENHA_DB=''
+# NOME DO BANCO DE DADOS
+NOME_BANCO='nsi'
+# NOME PARA O BACKUP
+NOME_DO_BKP='nsi-mix'
+# ID TELEGRAM
+ID_TELEGRAM='-00000000'
+# --------------------------------------
+DATABKP=`date +%Y-%m-%d`
+NOME_BD="/tmp/${NOME_BANCO}.${DATABKP}.sql"
+NOME_BD_COMPACTADO="/tmp/${NOME_BANCO}.${DATABKP}.tar.gz"
+
+# Usando a variável de ambiente PGPASSWORD para passar a senha
+export PGPASSWORD=${SENHA_DB}
+docker exec e575470dee4c pg_dump -h localhost -p 5432 -U ${USER_DB} -d ${NOME_BANCO} > ${NOME_BD}
+
+# Compactando o arquivo de backup
+tar -czf "${NOME_BD_COMPACTADO}" -C /tmp "${NOME_BANCO}.${DATABKP}.sql"
+
+/bin/telegram -f "${ID_TELEGRAM}" "${NOME_BD_COMPACTADO}" "${NOME_DO_BKP}" "${NOME_BANCO}" &>/dev/null
+
+# Adicionando um atraso de 5 minutos antes de remover os arquivos
+sleep 300
+
+# Removendo arquivos temporários
+rm -f ${NOME_BD} &>/dev/null
+rm -f ${NOME_BD_COMPACTADO} &>/dev/null
+```
 
 Dando permissão para o arquivo que acabamos de criar.
 
